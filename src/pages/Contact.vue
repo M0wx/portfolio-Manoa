@@ -127,7 +127,7 @@ const sendEmail = async () => {
         <h2>Send a message</h2>
         
         <div v-if="isSent" class="success-message">
-          <div class="success-icon">succes</div>
+          <div class="success-icon">✅</div>
           <h3>Message Sent!</h3>
           <p>Thank you, Manoasoa will get back to you soon.</p>
           <button @click="isSent = false" class="btn-reset">Send another message</button>
@@ -144,7 +144,7 @@ const sendEmail = async () => {
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea v-model="formData.message" id="message" rows="5" placeholder="How can i help you?" required></textarea>
+            <textarea v-model="formData.message" id="message" placeholder="How can I help you?" required></textarea>
           </div>
           
           <p v-if="error" class="error-text">{{ error }}</p>
@@ -161,14 +161,14 @@ const sendEmail = async () => {
 
 <style scoped>
 .contact-page {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 /* Mini Hero Styles */
 .mini-hero {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   background-color: var(--bg-primary);
   padding: 30px;
   border-radius: 12px;
@@ -183,8 +183,9 @@ const sendEmail = async () => {
 
 .mini-photo-section {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
 }
 
 .mini-photo-wrapper {
@@ -216,14 +217,14 @@ const sendEmail = async () => {
 }
 
 .mini-hero-info h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--text-primary);
   margin-bottom: 5px;
 }
 
 .personal-titles {
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 5px;
   font-size: 1.1rem;
 }
@@ -239,101 +240,132 @@ const sendEmail = async () => {
   color: var(--color-primary);
 }
 
-/* Contact Grid */
+/* Contact Grid - Improved for symmetry */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr; /* 50/50 split */
+  gap: 30px;
+  align-items: stretch; /* Force same height */
+}
+
+.social-section, .form-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
   color: var(--text-primary);
 }
 
 .section-desc {
   color: var(--text-secondary);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
 }
 
-/* Social Cards */
+/* Social Cards - Fixed height items */
 .social-cards {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  flex-grow: 1;
 }
 
 .social-card {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: var(--bg-primary);
+  gap: 15px;
+  padding: 15px;
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
+  height: 70px; /* Fixed height for consistent look */
 }
 
 .social-card:hover {
-  transform: translateX(10px);
+  transform: translateX(5px);
   border-color: var(--color-primary);
+  background-color: var(--bg-primary);
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-radius: 50%;
   font-weight: 800;
+  font-size: 0.8rem;
   color: var(--color-primary);
+  border: 1px solid var(--border-light);
 }
 
 .info span {
   display: block;
   font-weight: 700;
   color: var(--text-primary);
+  font-size: 0.9rem;
 }
 
 .info p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
 }
 
-/* Form Styles */
+/* Form Styles - Optimized for same height */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  flex-grow: 1;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 
 label {
   font-weight: 600;
+  font-size: 0.9rem;
   color: var(--text-primary);
 }
 
 input, textarea {
-  padding: 12px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 6px;
   border: 1px solid var(--border-medium);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
   font-family: inherit;
+  font-size: 0.95rem;
+}
+
+textarea {
+  flex-grow: 1; /* Makes textarea take remaining space */
+  min-height: 120px;
+  resize: vertical;
 }
 
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--color-primary);
+  background-color: var(--bg-primary);
 }
 
 .btn-send {
@@ -341,30 +373,26 @@ input:focus, textarea:focus {
   color: white;
   padding: 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
+  margin-top: auto; /* Push to bottom */
 }
 
 .btn-send:hover {
   opacity: 0.9;
+  filter: brightness(1.1);
 }
 
-.btn-send:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Success Message */
+/* Success Message height match */
 .success-message {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 40px;
-  background-color: var(--bg-primary);
-  color :green;
-  border-radius: 8px;
-  border: 2px solid var(--color-primary);
-  animation: scaleIn 0.3s ease-out;
 }
 
 @keyframes scaleIn {
@@ -377,32 +405,6 @@ input:focus, textarea:focus {
   margin-bottom: 20px;
 }
 
-.success-message h3 {
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.success-message p {
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-.btn-reset {
-  background: none;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.error-text {
-  color: #ff4444;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
 @media (max-width: 850px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -411,6 +413,14 @@ input:focus, textarea:focus {
   .mini-hero-container {
     flex-direction: column;
     text-align: center;
+  }
+
+  .info p {
+    max-width: 100%;
+  }
+
+  .social-section, .form-section {
+    padding: 20px;
   }
 }
 </style>
