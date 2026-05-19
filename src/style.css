@@ -1,0 +1,92 @@
+/* ============================================
+   THEME COLOR VARIABLES
+   Light Mode (default)
+   ============================================ */
+:root {
+  /* Primary Colors - Ultra Vibrant */
+  --color-primary: #0066ff; /* Electric Blue */
+  --color-secondary: #ffae00; /* Bright Orange */
+  --color-tertiary: #ffee00; /* Vibrant Yellow */
+  --color-white: #ffffff;
+
+  /* Text Colors */
+  --text-primary: #111111; /* Clean Black */
+  --text-secondary: #444444; /* Dark Gray */
+  --text-tertiary: #666666;
+
+  /* Background Colors - Clean White */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fcfcfc;
+  --bg-tertiary: #f5f5f5;
+
+  /* Border Colors */
+  --border-light: #eeeeee;
+  --border-medium: #dddddd;
+  --border-dark: #0066ff;
+
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-hover: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   DARK MODE THEME VARIABLES - Soft Gray Backgrounds
+   ============================================ */
+[data-theme='dark'] {
+  /* Primary Colors */
+  --color-primary: #4d94ff; /* Slightly softer Blue for dark mode */
+  --color-secondary: #ffae00;
+  --color-tertiary: #ffee00;
+  --color-white: #ffffff;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #aaaaaa;
+
+  /* Background Colors - Neutral Gray (not blue) */
+  --bg-primary: #1e1e1e; /* Soft Dark Gray */
+  --bg-secondary: #252525;
+  --bg-tertiary: #2d2d2d;
+
+  /* Border Colors */
+  --border-light: #333333;
+  --border-medium: #444444;
+  --border-dark: #4d94ff;
+
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
