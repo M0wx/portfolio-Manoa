@@ -66,7 +66,8 @@ import profileImage from '../assets/sunny-removebg-preview.png'
 .hero-photo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
   filter: drop-shadow(0 15px 30px var(--shadow-color));
 }
 
