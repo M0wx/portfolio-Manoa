@@ -2,7 +2,7 @@
 import { onMounted, ref, nextTick } from 'vue';
 import profileImage from '../assets/sunny-removebg-preview.png';
 
-const lang = ref<'fr' | 'en'>('fr');
+const lang = ref<'fr' | 'en'>('en');
 let observerInstance: IntersectionObserver | null = null;
 
 const initObserver = () => {
